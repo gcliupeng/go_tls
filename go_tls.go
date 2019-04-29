@@ -2,6 +2,7 @@ package go_tls
 // import "fmt"
 import "unsafe"
 import "sync"
+//the struct below copy from runtime/runtime2.go
 type stack struct {
 	lo uintptr
 	hi uintptr
