@@ -6,12 +6,12 @@ golang并没有提供tls相关的接口，使得我们在共享数据时不得�
 ## 使用实例
     package main
     import "fmt"
-    import "tls"
+    import "go_tls"
     
     
     func main() {
-    	tls.Set_ctx(100)
-    	v,ok :=tls.Get_ctx()
+    	go_tls.Set_ctx(100)
+    	v,ok :=go_tls.Get_ctx()
     	if !ok{
     		panic("error")
     	}
@@ -20,10 +20,10 @@ golang并没有提供tls相关的接口，使得我们在共享数据时不得�
     	}
     	go func (n int) {
     		defer func () {
-    			tls.Del_ctx()
+    			go_tls.Del_ctx()
     		}()
     		tls.Set_ctx(n)
-    		v,ok :=tls.Get_ctx()
+    		v,ok :=go_tls.Get_ctx()
     		if !ok{
     			panic("error")
     		}
